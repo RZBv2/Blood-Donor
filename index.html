@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Donor Finder | রক্তসেবা</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 14c1.49-1.46 3-3.46 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.04 1.51 4.04 3 5.5m6-8.5l.5 3.5-2.5 1.5 2.5 1.5-.5 3.5.5-3.5 2.5-1.5-2.5-1.5.5-3.5"/>
+                    </svg>
+                    <span class="logo-text" data-en="Blood Donor Finder" data-bn="রক্তসেবা">রক্তসেবা</span>
+                </div>
+                <nav class="nav">
+                    <button class="nav-btn active" data-view="search" data-en="Find Blood" data-bn="রক্ত প্রয়োজন">রক্ত প্রয়োজন</button>
+                    <button class="nav-btn" data-view="register" data-en="Become Donor" data-bn="রক্তদাতা হন">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M19 14c1.49-1.46 3-3.46 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.04 1.51 4.04 3 5.5"/>
+                        </svg>
+                        <span data-en="Become Donor" data-bn="রক্তদাতা হন">রক্তদাতা হন</span>
+                    </button>
+                    <div class="header-controls">
+                        <button class="theme-toggle" id="themeToggle" title="Toggle dark/light mode">
+                            <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="5"/>
+                                <line x1="12" y1="1" x2="12" y2="3"/>
+                                <line x1="12" y1="21" x2="12" y2="23"/>
+                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                                <line x1="1" y1="12" x2="3" y2="12"/>
+                                <line x1="21" y1="12" x2="23" y2="12"/>
+                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                            </svg>
+                            <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                            </svg>
+                        </button>
+                        <select class="language-select" id="languageSelect">
+                            <option value="bn">বাংলা</option>
+                            <option value="en">English</option>
+                        </select>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Search View -->
+        <div id="searchView" class="view active">
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="container">
+                    <h1 class="hero-title">
+                        <span data-en="Find a Blood Donor" data-bn="রক্তদাতা খুঁজুন">রক্তদাতা খুঁজুন</span>
+                        <span class="highlight" data-en="Near You" data-bn="আপনার কাছে">আপনার কাছে</span>
+                    </h1>
+                    <p class="hero-subtitle" data-en="Search blood donors by blood group and area. Save a life today." data-bn="রক্তের গ্রুপ ও এলাকা দিয়ে সহজেই রক্তদাতা খুঁজে নিন।">রক্তের গ্রুপ ও এলাকা দিয়ে সহজেই রক্তদাতা খুঁজে নিন।</p>
+
+                    <!-- Search Form -->
+                    <div class="search-form">
+                        <select id="bloodGroupSelect" class="form-select">
+                            <option value="" data-en="Select Blood Group" data-bn="রক্ত গ্রুপ নির্বাচন করুন">রক্ত গ্রুপ নির্বাচন করুন</option>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                        </select>
+
+                        <select id="areaSelect" class="form-select">
+                            <option value="" data-en="Select Division" data-bn="বিভাগ নির্বাচন করুন">বিভাগ নির্বাচন করুন</option>
+                            <option value="Dhaka" data-en="Dhaka" data-bn="ঢাকা">ঢাকা</option>
+                            <option value="Chittagong" data-en="Chittagong" data-bn="চট্টগ্রাম">চট্টগ্রাম</option>
+                            <option value="Rajshahi" data-en="Rajshahi" data-bn="রাজশাহী">রাজশাহী</option>
+                            <option value="Khulna" data-en="Khulna" data-bn="খুলনা">খুলনা</option>
+                            <option value="Sylhet" data-en="Sylhet" data-bn="সিলেট">সিলেট</option>
+                            <option value="Barisal" data-en="Barisal" data-bn="বরিশাল">বরিশাল</option>
+                            <option value="Rangpur" data-en="Rangpur" data-bn="রংপুর">রংপুর</option>
+                            <option value="Mymensingh" data-en="Mymensingh" data-bn="ময়মনসিংহ">ময়মনসিংহ</option>
+                        </select>
+
+                        <button id="searchBtn" class="btn btn-primary" data-en="Search" data-bn="খুঁজুন">খুঁজুন</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results">
+                <div class="container">
+                    <div id="resultsContent" class="results-content">
+                        <p class="no-results" data-en="Use the search form above to find donors." data-bn="উপরের সার্চ ফর্ম ব্যবহার করে রক্তদাতা খুঁজুন।">উপরের সার্চ ফর্ম ব্যবহার করে রক্তদাতা খুঁজুন।</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Register View -->
+        <div id="registerView" class="view">
+            <section class="register-section">
+                <div class="container">
+                    <h2 class="section-title" data-en="Become a Blood Donor" data-bn="রক্তদাতা হওয়ার পাথ">রক্তদাতা হওয়ার পাথ</h2>
+                    <p class="section-subtitle" data-en="Register as a blood donor and help save lives" data-bn="রক্তদাতা হিসেবে নিবন্ধন করুন এবং জীবন বাঁচান">রক্তদাতা হিসেবে নিবন্ধন করুন এবং জীবন বাঁচান</p>
+
+                    <form id="registerForm" class="register-form">
+                        <div class="form-group">
+                            <label for="donorName" data-en="Full Name" data-bn="পূর্ণ নাম">পূর্ণ নাম</label>
+                            <input type="text" id="donorName" name="name" required placeholder="">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="donorPhone" data-en="Phone Number" data-bn="ফোন নম্বর">ফোন নম্বর</label>
+                            <input type="tel" id="donorPhone" name="phone" required placeholder="01XXXXXXXXX">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="donorBloodGroup" data-en="Blood Group" data-bn="রক্ত গ্রুপ">রক্ত গ্রুপ</label>
+                            <select id="donorBloodGroup" name="blood_group" required>
+                                <option value="" data-en="Select Blood Group" data-bn="রক্ত গ্রুপ নির্বাচন করুন">রক্ত গ্রুপ নির্বাচন করুন</option>
+                                <option value="A+">A+</option>
+                                <option value="A-">A-</option>
+                                <option value="B+">B+</option>
+                                <option value="B-">B-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
+                                <option value="O+">O+</option>
+                                <option value="O-">O-</option>
+                            </select>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="donorArea" data-en="Area" data-bn="এলাকা">এলাকা</label>
+                                <input type="text" id="donorArea" name="area" required placeholder="">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="donorCity" data-en="Division" data-bn="বিভাগ">বিভাগ</label>
+                                <select id="donorCity" name="city" required>
+                                    <option value="" data-en="Select Division" data-bn="বিভাগ নির্বাচন করুন">বিভাগ নির্বাচন করুন</option>
+                                    <option value="Dhaka" data-en="Dhaka" data-bn="ঢাকা">ঢাকা</option>
+                                    <option value="Chittagong" data-en="Chittagong" data-bn="চট্টগ্রাম">চট্টগ্রাম</option>
+                                    <option value="Rajshahi" data-en="Rajshahi" data-bn="রাজশাহী">রাজশাহী</option>
+                                    <option value="Khulna" data-en="Khulna" data-bn="খুলনা">খুলনা</option>
+                                    <option value="Sylhet" data-en="Sylhet" data-bn="সিলেট">সিলেট</option>
+                                    <option value="Barisal" data-en="Barisal" data-bn="বরিশাল">বরিশাল</option>
+                                    <option value="Rangpur" data-en="Rangpur" data-bn="রংপুর">রংপুর</option>
+                                    <option value="Mymensingh" data-en="Mymensingh" data-bn="ময়মনসিংহ">ময়মনসিংহ</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lastDonated" data-en="Last Donation Date" data-bn="সর্বশেষ দান করার তারিখ">সর্বশেষ দান করার তারিখ</label>
+                            <input type="date" id="lastDonated" name="last_donated_date">
+                        </div>
+
+                        <div class="form-group checkbox">
+                            <input type="checkbox" id="isAvailable" name="is_available" checked>
+                            <label for="isAvailable" data-en="I am available to donate" data-bn="আমি দান করতে প্রস্তুত">আমি দান করতে প্রস্তুত</label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-large" data-en="Register as Donor" data-bn="রক্তদাতা হিসেবে নিবন্ধন করুন">রক্তদাতা হিসেবে নিবন্ধন করুন</button>
+                    </form>
+
+                    <div id="registerMessage" class="register-message" style="display: none;"></div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p data-en="Every drop matters. Donate blood, save lives." data-bn="প্রতিটি ফোঁটা গুরুত্বপূর্ণ। রক্তদান করুন, জীবন বাঁচান।">প্রতিটি ফোঁটা গুরুত্বপূর্ণ। রক্তদান করুন, জীবন বাঁচান।</p>
+    </footer>
+
+    <script src="language.js"></script>
+    <script src="theme.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
